@@ -1,58 +1,104 @@
-/* styles.css: estilos simples y responsive */
-:root{
-  --bg:#f7f8fb; --card:#ffffff; --accent:#0066cc; --text:#222;
-  --container-max:1000px;
-}
-*{box-sizing:border-box}
-body{
-  margin:0; font-family:Inter,system-ui,Segoe UI,Arial;
-  background:var(--bg); color:var(--text); line-height:1.5;
-}
-.container{
-  max-width:var(--container-max); margin:0 auto; padding:1rem;
-}
-.site-header{
-  background:linear-gradient(90deg,rgba(0,0,0,0.03),transparent);
-  border-bottom:1px solid rgba(0,0,0,0.04);
-}
-.site-header .container{display:flex;align-items:center;justify-content:space-between}
-.logo{margin:0;font-size:1.25rem}
-.nav-list{list-style:none;padding:0;margin:0;display:flex;gap:1rem}
-.nav-list a{color:var(--text);text-decoration:none}
-.menu-toggle{display:none;background:none;border:0;font-size:1.25rem}
-
-/* Hero */
-.hero{
-  padding:3rem 0; text-align:center; background:var(--card); margin:1rem 0; border-radius:10px;
-  box-shadow:0 6px 18px rgba(12,30,60,0.06);
-}
-.hero h2{margin:.25rem 0 0.5rem;font-size:1.75rem}
-.cta{
-  display:inline-block;margin-top:1rem;background:var(--accent);color:#fff;padding:.6rem 1rem;border-radius:6px;text-decoration:none;
+/* Base reset and custom styles for the backend portfolio */
+:root {
+  --bg: #030712;
+  --bg-soft: #0f172a;
+  --panel: rgba(15, 23, 42, 0.75);
+  --panel-strong: rgba(15, 23, 42, 0.95);
+  --border: rgba(255, 255, 255, 0.08);
+  --text: #f3f4f6;
+  --muted: #94a3b8;
+  --emerald: #10b981;
+  --cyan: #06b6d4;
+  --blue: #3b82f6;
+  --shadow: 0 20px 45px rgba(2, 6, 23, 0.45);
 }
 
-/* Features */
-.features{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin:1.5rem 0}
-.feature{background:var(--card);padding:1rem;border-radius:8px;box-shadow:0 2px 8px rgba(12,30,60,0.04)}
-
-/* Contact */
-.contact form{display:grid;gap:.75rem;max-width:640px}
-.contact label{display:flex;flex-direction:column;font-size:.9rem}
-.contact input,.contact textarea{
-  padding:.5rem;border:1px solid rgba(0,0,0,0.12);border-radius:6px;background:transparent
+html {
+  scroll-behavior: smooth;
 }
-.contact button{
-  width:max-content;padding:.6rem 1rem;border:0;background:var(--accent);color:#fff;border-radius:6px;cursor:pointer;
+
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background-color: var(--bg);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
-.response{margin-top:.5rem;color:green}
 
-/* Footer */
-.site-footer{padding:1rem 0;text-align:center;color:rgba(0,0,0,0.6)}
+* {
+  box-sizing: border-box;
+}
 
-/* Responsive */
-@media (max-width:800px){
-  .features{grid-template-columns:1fr}
-  .menu-toggle{display:inline-block}
-  .nav-list{position:absolute;right:1rem;top:56px;background:var(--card);flex-direction:column;padding:.5rem;border-radius:8px;display:none;box-shadow:0 8px 24px rgba(12,30,60,0.08)}
-  .nav-list.show{display:flex}
+::selection {
+  background: rgba(16, 185, 129, 0.9);
+  color: #020617;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #030712;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1e293b;
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--emerald);
+}
+
+.glassmorphism {
+  background: var(--panel);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+}
+
+.text-gradient {
+  background: linear-gradient(135deg, #34d399 0%, #38bdf8 50%, #818cf8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.glow-effect {
+  box-shadow: 0 0 25px -5px rgba(16, 185, 129, 0.3);
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  text-decoration: none;
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+}
+
+main {
+  min-height: 100vh;
+}
+
+#main-header {
+  transition: box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+#main-header:hover {
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.35);
+}
+
+@media (max-width: 767px) {
+  #mobile-menu {
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
 }
