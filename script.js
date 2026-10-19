@@ -1,130 +1,56 @@
-const skills = [
-  "HTML",
-  "CSS",
-  "JavaScript",
-  "React",
-  "Node.js",
-  "Git",
-  "UX/UI",
-  "Responsive Design",
+const posts = [
+  {
+    title: 'Cómo estructurar mejor un proyecto frontend',
+    category: 'Desarrollo',
+    date: '12 mayo 2026',
+    readTime: '4 min de lectura',
+    excerpt: 'Aprende a organizar carpetas, componentes y estilos para que tu código sea más mantenible y escalable.',
+    link: '#'
+  },
+  {
+    title: '3 ideas para mejorar la experiencia de usuario en una landing page',
+    category: 'UX',
+    date: '20 abril 2026',
+    readTime: '6 min de lectura',
+    excerpt: 'Pequeños cambios de diseño y organización pueden mejorar mucho la claridad y la conversión.',
+    link: '#'
+  },
+  {
+    title: 'Guía rápida para optimizar rendimiento web',
+    category: 'Performance',
+    date: '30 marzo 2026',
+    readTime: '5 min de lectura',
+    excerpt: 'Usar imágenes adecuadas, reducir scripts y mejorar la estructura del sitio puede marcar una gran diferencia.',
+    link: '#'
+  },
+  {
+    title: 'Diseño limpio: menos es más en interfaces modernas',
+    category: 'Diseño',
+    date: '14 febrero 2026',
+    readTime: '3 min de lectura',
+    excerpt: 'Un diseño sencillo, ordenado y visualmente claro suele transmitir más confianza y valor.',
+    link: '#'
+  }
 ];
 
-const projects = [
-  {
-    title: "Dashboard de ventas",
-    category: "Frontend",
-    description:
-      "Panel de administración para seguimiento de métricas, KPIs y ventas en tiempo real con diseño claro y responsive.",
-    tech: ["React", "Chart.js", "CSS"],
-    link: "#",
-    demo: "Ver proyecto",
-  },
-  {
-    title: "Landing page de marca",
-    category: "Landing Page",
-    description:
-      "Sitio promocional para una marca con enfoque en conversión, storytelling visual y diseño atractivo para móviles y desktop.",
-    tech: ["HTML", "CSS", "JavaScript"],
-    link: "#",
-    demo: "Ver proyecto",
-  },
-  {
-    title: "Sistema de tareas",
-    category: "UX/UI",
-    description:
-      "Aplicación para gestionar tareas, prioridades, recordatorios y seguimiento de progreso con una experiencia intuitiva.",
-    tech: ["Figma", "UX", "JavaScript"],
-    link: "#",
-    demo: "Ver proyecto",
-  },
-  {
-    title: "Portfolio personal",
-    category: "Frontend",
-    description:
-      "Portafolio moderno para destacar proyectos, experiencia y habilidades con navegación fluida y diseño limpio.",
-    tech: ["HTML", "CSS", "JS"],
-    link: "#",
-    demo: "Ver proyecto",
-  },
-  {
-    title: "E-commerce MVP",
-    category: "Landing Page",
-    description:
-      "Versión mínima de una tienda online para validar flujo de compra, catálogo y pagos con enfoque en usabilidad.",
-    tech: ["React", "API", "UX"],
-    link: "#",
-    demo: "Ver proyecto",
-  },
-  {
-    title: "Herramienta de seguimiento",
-    category: "UX/UI",
-    description:
-      "Producto orientado a monitoreo de actividades y reportes con interfaz simple, clara y enfocada en la productividad.",
-    tech: ["Design System", "JS", "CSS"],
-    link: "#",
-    demo: "Ver proyecto",
-  },
-];
+const featuredPosts = document.getElementById('featured-posts');
+const featuredGrid = document.getElementById('featured-grid');
 
-const skillsGrid = document.getElementById("skills-grid");
-const projectsGrid = document.getElementById("projects-grid");
-const filterButtons = document.querySelectorAll(".filter-btn");
-const contactForm = document.getElementById("contact-form");
-const formResponse = document.getElementById("form-response");
-
-function renderSkills() {
-  skillsGrid.innerHTML = skills
-    .map(
-      (skill) => `
-        <div class="skill-pill">${skill}</div>
-      `
-    )
-    .join("");
+function renderPosts() {
+  featuredGrid.innerHTML = posts.map(post => `
+    <article class="post-card">
+      <div class="post-top">
+        <span class="post-tag">${post.category}</span>
+        <span class="post-date">${post.date}</span>
+      </div>
+      <h3>${post.title}</h3>
+      <p>${post.excerpt}</p>
+      <div class="post-meta">
+        <span>${post.readTime}</span>
+        <a href="${post.link}">Leer más →</a>
+      </div>
+    </article>
+  `).join('');
 }
 
-function renderProjects(filter = "all") {
-  const filteredProjects =
-    filter === "all" ? projects : projects.filter((project) => project.category === filter);
-
-  projectsGrid.innerHTML = filteredProjects
-    .map(
-      (project) => `
-        <article class="project-card">
-          <div class="project-visual">${project.category}</div>
-          <div class="project-body">
-            <div class="project-meta">
-              <span class="project-tag">${project.category}</span>
-            </div>
-            <h3>${project.title}</h3>
-            <p>${project.description}</p>
-            <div class="tech-list">
-              ${project.tech.map((item) => `<span class="tech-item">${item}</span>`).join("")}
-            </div>
-            <div class="project-links">
-              <a href="${project.link}" aria-label="Ver proyecto ${project.title}">${project.demo}</a>
-            </div>
-          </div>
-        </article>
-      `
-    )
-    .join("");
-}
-
-filterButtons.forEach((button) => {
-  button.addEventListener("click", () => {
-    filterButtons.forEach((btn) => btn.classList.remove("active"));
-    button.classList.add("active");
-    renderProjects(button.dataset.filter);
-  });
-});
-
-contactForm.addEventListener("submit", (event) => {
-  event.preventDefault();
-  const formData = new FormData(contactForm);
-  const name = formData.get("name");
-  formResponse.textContent = `Gracias ${name}, tu mensaje ha sido enviado.`;
-  contactForm.reset();
-});
-
-renderSkills();
-renderProjects();
+renderPosts();
