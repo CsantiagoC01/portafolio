@@ -1,0 +1,58 @@
+/* styles.css: estilos simples y responsive */
+:root{
+  --bg:#f7f8fb; --card:#ffffff; --accent:#0066cc; --text:#222;
+  --container-max:1000px;
+}
+*{box-sizing:border-box}
+body{
+  margin:0; font-family:Inter,system-ui,Segoe UI,Arial;
+  background:var(--bg); color:var(--text); line-height:1.5;
+}
+.container{
+  max-width:var(--container-max); margin:0 auto; padding:1rem;
+}
+.site-header{
+  background:linear-gradient(90deg,rgba(0,0,0,0.03),transparent);
+  border-bottom:1px solid rgba(0,0,0,0.04);
+}
+.site-header .container{display:flex;align-items:center;justify-content:space-between}
+.logo{margin:0;font-size:1.25rem}
+.nav-list{list-style:none;padding:0;margin:0;display:flex;gap:1rem}
+.nav-list a{color:var(--text);text-decoration:none}
+.menu-toggle{display:none;background:none;border:0;font-size:1.25rem}
+
+/* Hero */
+.hero{
+  padding:3rem 0; text-align:center; background:var(--card); margin:1rem 0; border-radius:10px;
+  box-shadow:0 6px 18px rgba(12,30,60,0.06);
+}
+.hero h2{margin:.25rem 0 0.5rem;font-size:1.75rem}
+.cta{
+  display:inline-block;margin-top:1rem;background:var(--accent);color:#fff;padding:.6rem 1rem;border-radius:6px;text-decoration:none;
+}
+
+/* Features */
+.features{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin:1.5rem 0}
+.feature{background:var(--card);padding:1rem;border-radius:8px;box-shadow:0 2px 8px rgba(12,30,60,0.04)}
+
+/* Contact */
+.contact form{display:grid;gap:.75rem;max-width:640px}
+.contact label{display:flex;flex-direction:column;font-size:.9rem}
+.contact input,.contact textarea{
+  padding:.5rem;border:1px solid rgba(0,0,0,0.12);border-radius:6px;background:transparent
+}
+.contact button{
+  width:max-content;padding:.6rem 1rem;border:0;background:var(--accent);color:#fff;border-radius:6px;cursor:pointer;
+}
+.response{margin-top:.5rem;color:green}
+
+/* Footer */
+.site-footer{padding:1rem 0;text-align:center;color:rgba(0,0,0,0.6)}
+
+/* Responsive */
+@media (max-width:800px){
+  .features{grid-template-columns:1fr}
+  .menu-toggle{display:inline-block}
+  .nav-list{position:absolute;right:1rem;top:56px;background:var(--card);flex-direction:column;padding:.5rem;border-radius:8px;display:none;box-shadow:0 8px 24px rgba(12,30,60,0.08)}
+  .nav-list.show{display:flex}
+}
