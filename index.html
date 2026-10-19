@@ -3,10 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Santiago Carmona | Portafolio</title>
+    <title>Santiago Carmona | Blog</title>
     <meta
       name="description"
-      content="Portafolio personal de Santiago Carmona, desarrollador y creador de proyectos web."
+      content="Blog personal de Santiago Carmona sobre diseño, frontend y experiencia de usuario."
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -22,97 +22,108 @@
         <a href="#inicio" class="brand">SC</a>
         <nav class="nav" aria-label="Navegación principal">
           <a href="#inicio">Inicio</a>
-          <a href="#sobre-mi">Sobre mí</a>
+          <a href="#blog">Blog</a>
           <a href="#proyectos">Proyectos</a>
-          <a href="#habilidades">Habilidades</a>
+          <a href="#sobre-mi">Sobre mí</a>
           <a href="#contacto">Contacto</a>
         </nav>
-        <a class="btn btn-outline" href="#contacto">Hablemos</a>
+        <a class="btn btn-outline" href="#contacto">Escríbeme</a>
       </div>
     </header>
 
     <main>
       <section id="inicio" class="hero">
         <div class="container hero-content">
-          <div class="hero-copy">
-            <p class="eyebrow">Desarrollador web</p>
-            <h1>Diseño y construyo experiencias digitales que conectan.</h1>
+          <div>
+            <p class="eyebrow">Blog personal</p>
+            <h1>Ideas, aprendizajes y experiencias de diseño y desarrollo.</h1>
             <p class="lead">
-              Soy Santiago Carmona, me apasiona crear soluciones funcionales, modernas y
-              fáciles de usar para personas y marcas.
+              Aquí comparto artículos sobre frontend, UX, productos digitales y crecimiento profesional.
             </p>
             <div class="hero-actions">
-              <a class="btn btn-primary" href="#proyectos">Ver proyectos</a>
-              <a class="btn btn-secondary" href="#contacto">Contactar</a>
+              <a class="btn btn-primary" href="#blog">Leer artículos</a>
+              <a class="btn btn-secondary" href="#sobre-mi">Conóceme</a>
             </div>
-            <ul class="hero-meta">
-              <li>+2 años creando soluciones web</li>
-              <li>Disponible para proyectos freelance</li>
-            </ul>
           </div>
 
           <div class="hero-card">
             <div class="mini-card">
               <span class="label">Especialidad</span>
-              <strong>Frontend & UX</strong>
+              <strong>Frontend &amp; UX</strong>
             </div>
             <div class="mini-card accent">
-              <span class="label">Enfoque</span>
-              <strong>Experiencia clara y rápida</strong>
+              <span class="label">Intereses</span>
+              <strong>Diseño · Desarrollo · Educación</strong>
             </div>
             <div class="mini-card">
-              <span class="label">Stack</span>
-              <strong>HTML · CSS · JS</strong>
+              <span class="label">Ahora</span>
+              <strong>Escribiendo y construyendo</strong>
             </div>
           </div>
         </div>
       </section>
 
-      <section id="sobre-mi" class="section">
+      <section id="blog" class="section">
+        <div class="container">
+          <div class="section-heading">
+            <p class="section-tag">Blog</p>
+            <h2>Últimos artículos</h2>
+          </div>
+          <div id="featured-grid" class="post-grid"></div>
+        </div>
+      </section>
+
+      <section id="sobre-mi" class="section muted">
         <div class="container two-columns">
           <div>
             <p class="section-tag">Sobre mí</p>
-            <h2>Creo productos digitales con claridad y propósito.</h2>
+            <h2>Me gusta explicar ideas claras y útiles.</h2>
           </div>
           <div>
             <p>
-              Me interesa combinar diseño, tecnología y estrategia para construir páginas y
-              experiencias que no solo se vean bien, sino que también resuelvan problemas reales.
-              Mi enfoque está en la simplicidad, la accesibilidad y la mejora continua.
+              Soy Santiago, me apasiona crear experiencias digitales con sentido y ayudar a otras
+              personas a entender mejor el diseño y la tecnología.
             </p>
             <p>
-              He trabajado en proyectos de sitios web, landing pages, portafolios y soluciones con
-              foco en usabilidad y rendimiento.
+              En este blog comparto reflexiones, recursos y aprendizajes sobre desarrollo web, UX
+              y trabajo creativo.
             </p>
           </div>
-        </div>
-      </section>
-
-      <section id="habilidades" class="section muted">
-        <div class="container">
-          <div class="section-heading">
-            <p class="section-tag">Habilidades</p>
-            <h2>Herramientas que uso para transformar ideas en productos.</h2>
-          </div>
-          <div id="skills-grid" class="skills-grid"></div>
         </div>
       </section>
 
       <section id="proyectos" class="section">
         <div class="container">
-          <div class="section-heading row-between">
-            <div>
-              <p class="section-tag">Proyectos</p>
-              <h2>Algunos trabajos destacados.</h2>
-            </div>
-            <div id="project-filters" class="filters" aria-label="Filtros de proyectos">
-              <button class="filter-btn active" data-filter="all">Todos</button>
-              <button class="filter-btn" data-filter="Frontend">Frontend</button>
-              <button class="filter-btn" data-filter="UX/UI">UX/UI</button>
-              <button class="filter-btn" data-filter="Landing Page">Landing Page</button>
-            </div>
+          <div class="section-heading">
+            <p class="section-tag">Proyectos</p>
+            <h2>Lo que he construido</h2>
           </div>
-          <div id="projects-grid" class="projects-grid"></div>
+          <div class="projects-grid">
+            <article class="project-card">
+              <div class="project-visual">UI</div>
+              <div class="project-body">
+                <span class="project-tag">Frontend</span>
+                <h3>Landing page</h3>
+                <p>Diseño y desarrollo de una página para captar clientes y presentar un producto.</p>
+              </div>
+            </article>
+            <article class="project-card">
+              <div class="project-visual">UX</div>
+              <div class="project-body">
+                <span class="project-tag">UX/UI</span>
+                <h3>Experiencia digital</h3>
+                <p>Mejoras de flujo y estructura para hacer productos más claros y eficientes.</p>
+              </div>
+            </article>
+            <article class="project-card">
+              <div class="project-visual">WEB</div>
+              <div class="project-body">
+                <span class="project-tag">Desarrollo</span>
+                <h3>Página personal</h3>
+                <p>Diseño y desarrollo de un sitio que refleja identidad, trayectoria y contenido.</p>
+              </div>
+            </article>
+          </div>
         </div>
       </section>
 
@@ -120,11 +131,8 @@
         <div class="container contact-box">
           <div>
             <p class="section-tag">Contacto</p>
-            <h2>¿Tienes un proyecto en mente?</h2>
-            <p>
-              Estoy abierto a colaborar en proyectos web, mejoras visuales, landing pages y
-              soluciones digitales.
-            </p>
+            <h2>¿Quieres hablar sobre un proyecto o colaboración?</h2>
+            <p>Estoy abierto a oportunidades, ideas y conversaciones creativas.</p>
           </div>
 
           <form id="contact-form" class="contact-form">
@@ -153,6 +161,7 @@
         <div class="socials">
           <a href="https://github.com/CsantiagoC01" target="_blank" rel="noreferrer">GitHub</a>
           <a href="https://www.linkedin.com" target="_blank" rel="noreferrer">LinkedIn</a>
+          <a href="https://instagram.com" target="_blank" rel="noreferrer">Instagram</a>
         </div>
       </div>
     </footer>
