@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Mi Página Web - CsantiagoC01</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <h1 class="logo">MiSitio</h1>
+      <nav>
+        <button id="menu-toggle" class="menu-toggle">☰</button>
+        <ul id="menu" class="nav-list">
+          <li><a href="#inicio">Inicio</a></li>
+          <li><a href="#servicios">Servicios</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section id="inicio" class="hero">
+      <div class="container">
+        <h2>Bienvenido a MiSitio</h2>
+        <p>Una página sencilla, responsive y lista para personalizar.</p>
+        <a class="cta" href="#contacto">Contáctame</a>
+      </div>
+    </section>
+
+    <section id="servicios" class="features container">
+      <article class="feature">
+        <h3>Diseño</h3>
+        <p>Diseños limpios y adaptativos para cualquier pantalla.</p>
+      </article>
+      <article class="feature">
+        <h3>Desarrollo</h3>
+        <p>HTML, CSS y JavaScript moderno para sitios rápidos.</p>
+      </article>
+      <article class="feature">
+        <h3>Soporte</h3>
+        <p>Mantenimiento y mejoras continuas según tus necesidades.</p>
+      </article>
+    </section>
+
+    <section id="contacto" class="contact container">
+      <h2>Contacto</h2>
+      <form id="contact-form">
+        <label>
+          Nombre
+          <input type="text" name="name" required />
+        </label>
+        <label>
+          Email
+          <input type="email" name="email" required />
+        </label>
+        <label>
+          Mensaje
+          <textarea name="message" rows="5" required></textarea>
+        </label>
+        <button type="submit">Enviar</button>
+      </form>
+      <p id="form-response" class="response" aria-live="polite"></p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <small>© 2026 MiSitio · Hecho con ❤️ · CsantiagoC01</small>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
