@@ -1,171 +1,728 @@
 <!DOCTYPE html>
-<html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Santiago Carmona | Blog</title>
-    <meta
-      name="description"
-      content="Blog personal de Santiago Carmona sobre diseño, frontend y experiencia de usuario."
-    />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="styles.css" />
-  </head>
-  <body>
-    <header class="site-header">
-      <div class="container navbar">
-        <a href="#inicio" class="brand">SC</a>
-        <nav class="nav" aria-label="Navegación principal">
-          <a href="#inicio">Inicio</a>
-          <a href="#blog">Blog</a>
-          <a href="#proyectos">Proyectos</a>
-          <a href="#sobre-mi">Sobre mí</a>
-          <a href="#contacto">Contacto</a>
-        </nav>
-        <a class="btn btn-outline" href="#contacto">Escríbeme</a>
-      </div>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Meta SEO Técnico -->
+    <title>Santiago Carmona Cañas | Desarrollador Backend & Software Builder</title>
+    <meta name="description" content="Portafolio profesional de Santiago Carmona Cañas, Desarrollador Backend especializado en Python, FastAPI, PostgreSQL, Docker, TypeScript y arquitecturas de software escalables.">
+    <meta name="keywords" content="Santiago Carmona, Backend Developer, Python, FastAPI, PostgreSQL, Docker, TypeScript, Next.js, Software Architect, Medellin">
+    <meta name="author" content="Santiago Carmona Cañas">
+    
+    <!-- Open Graph / Social Media Meta Tags -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://github.com/CsantiagoC01">
+    <meta property="og:title" content="Santiago Carmona Cañas | Desarrollador Backend">
+    <meta property="og:description" content="Especialista en desarrollo de APIs RESTful robustas, arquitectura de bases de datos y soluciones cloud escalables.">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1200&q=80">
+
+    <!-- Tailwind CSS v3 via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Tailwind Configuration for Theme Customization -->
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            dark: '#0a0f1d',
+                            card: '#111827',
+                            emerald: '#10b981',
+                            cyan: '#06b6d4',
+                            accent: '#3b82f6'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['Fira Code', 'monospace']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Google Fonts & FontAwesome Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* Custom Customizations and animations */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #030712;
+            color: #f3f4f6;
+        }
+
+        /* Glassmorphic effect */
+        .glassmorphism {
+            background: rgba(15, 23, 42, 0.75);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #030712;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1e293b;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #10b981;
+        }
+
+        /* Gradient Text Effects */
+        .text-gradient {
+            background: linear-gradient(135deg, #34d399 0%, #38bdf8 50%, #818cf8 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .glow-effect {
+            box-shadow: 0 0 25px -5px rgba(16, 185, 129, 0.3);
+        }
+    </style>
+</head>
+<body class="bg-slate-950 text-slate-100 antialiased selection:bg-emerald-500 selection:text-slate-950 min-h-screen flex flex-col justify-between">
+
+    <!-- ========================================== -->
+    <!-- HEADER / NAVEGACIÓN STICKY CON GLASSMORPHISM -->
+    <!-- ========================================== -->
+    <header class="fixed top-0 left-0 w-full z-50 glassmorphism transition-all duration-300" id="main-header">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            
+            <!-- Logo / Nombre -->
+            <a href="#hero" class="flex items-center gap-2 group">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-emerald-500 to-cyan-500 flex items-center justify-center font-mono font-bold text-slate-950 text-xl shadow-lg group-hover:scale-105 transition-transform">
+                    SC
+                </div>
+                <div class="flex flex-col">
+                    <span class="font-bold text-slate-100 tracking-tight group-hover:text-emerald-400 transition-colors">Santiago Carmona</span>
+                    <span class="text-xs text-slate-400 font-mono">&lt;BackendDev /&gt;</span>
+                </div>
+            </a>
+
+            <!-- Navegación Escritorio -->
+            <nav class="hidden md:flex items-center space-x-8 text-sm font-medium">
+                <a href="#about" class="text-slate-300 hover:text-emerald-400 transition-colors flex items-center gap-1.5">
+                    <span class="text-emerald-500 font-mono text-xs">01.</span> Sobre Mí
+                </a>
+                <a href="#projects" class="text-slate-300 hover:text-emerald-400 transition-colors flex items-center gap-1.5">
+                    <span class="text-emerald-500 font-mono text-xs">02.</span> Proyectos
+                </a>
+                <a href="#blog" class="text-slate-300 hover:text-emerald-400 transition-colors flex items-center gap-1.5">
+                    <span class="text-emerald-500 font-mono text-xs">03.</span> Blog
+                </a>
+                <a href="#contact" class="text-slate-300 hover:text-emerald-400 transition-colors flex items-center gap-1.5">
+                    <span class="text-emerald-500 font-mono text-xs">04.</span> Contacto
+                </a>
+            </nav>
+
+            <!-- Badge de disponibilidad & Botón CTA -->
+            <div class="hidden md:flex items-center gap-4">
+                <div class="inline-flex items-center px-3 py-1 rounded-full text-xs font-mono bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
+                    <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping mr-2"></span>
+                    Disponible para proyectos
+                </div>
+            </div>
+
+            <!-- Botón Hamburguesa Móvil -->
+            <div class="md:hidden flex items-center">
+                <button id="mobile-menu-btn" type="button" class="text-slate-300 hover:text-white p-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500" aria-label="Abrir Menú">
+                    <i class="fa-solid fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Menú Desplegable Móvil -->
+        <div id="mobile-menu" class="hidden md:hidden bg-slate-900/95 border-b border-slate-800 px-4 pt-2 pb-6 space-y-3 transition-all">
+            <a href="#about" class="mobile-link block py-2.5 px-3 rounded-md text-base font-medium text-slate-200 hover:bg-slate-800 hover:text-emerald-400">
+                <span class="text-emerald-400 font-mono mr-2">01.</span> Sobre Mí
+            </a>
+            <a href="#projects" class="mobile-link block py-2.5 px-3 rounded-md text-base font-medium text-slate-200 hover:bg-slate-800 hover:text-emerald-400">
+                <span class="text-emerald-400 font-mono mr-2">02.</span> Proyectos
+            </a>
+            <a href="#blog" class="mobile-link block py-2.5 px-3 rounded-md text-base font-medium text-slate-200 hover:bg-slate-800 hover:text-emerald-400">
+                <span class="text-emerald-400 font-mono mr-2">03.</span> Blog
+            </a>
+            <a href="#contact" class="mobile-link block py-2.5 px-3 rounded-md text-base font-medium text-slate-200 hover:bg-slate-800 hover:text-emerald-400">
+                <span class="text-emerald-400 font-mono mr-2">04.</span> Contacto
+            </a>
+            <div class="pt-2 border-t border-slate-800 flex items-center justify-between">
+                <span class="text-xs text-emerald-400 font-mono flex items-center">
+                    <span class="w-2 h-2 rounded-full bg-emerald-400 mr-2"></span> Disponible para laborar
+                </span>
+            </div>
+        </div>
     </header>
 
-    <main>
-      <section id="inicio" class="hero">
-        <div class="container hero-content">
-          <div>
-            <p class="eyebrow">Blog personal</p>
-            <h1>Ideas, aprendizajes y experiencias de diseño y desarrollo.</h1>
-            <p class="lead">
-              Aquí comparto artículos sobre frontend, UX, productos digitales y crecimiento profesional.
-            </p>
-            <div class="hero-actions">
-              <a class="btn btn-primary" href="#blog">Leer artículos</a>
-              <a class="btn btn-secondary" href="#sobre-mi">Conóceme</a>
+    <!-- ========================================== -->
+    <!-- MAIN CONTENT -->
+    <!-- ========================================== -->
+    <main class="flex-grow pt-20">
+
+        <!-- 1. HERO SECTION -->
+        <section id="hero" class="min-h-[calc(100vh-5rem)] flex items-center justify-center relative overflow-hidden py-16 px-4 sm:px-6 lg:px-8">
+            <!-- Glow background decorative circles -->
+            <div class="absolute top-1/4 left-1/2 -translate-x-1/2 w-96 h-96 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none"></div>
+            <div class="absolute bottom-10 right-10 w-80 h-80 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+            <div class="max-w-5xl mx-auto w-full relative z-10 flex flex-col items-start space-y-6">
+                
+                <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-900 border border-slate-800 text-xs font-mono text-emerald-400">
+                    <i class="fa-solid fa-code text-cyan-400"></i> Backend Architecture & Cloud Systems
+                </div>
+
+                <div class="space-y-3">
+                    <p class="font-mono text-emerald-400 text-base sm:text-lg">Hola, mi nombre es</p>
+                    <h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold text-slate-100 tracking-tight leading-none">
+                        Santiago Carmona Cañas.
+                    </h1>
+                    <h2 class="text-3xl sm:text-5xl lg:text-6xl font-bold text-slate-400 tracking-tight">
+                        Construyo el motor de aplicaciones web escalables.
+                    </h2>
+                </div>
+
+                <p class="text-slate-400 max-w-2xl text-base sm:text-lg leading-relaxed">
+                    Desarrollador Backend apasionado por la creación de <strong class="text-slate-200 font-semibold">APIs RESTful de alto rendimiento</strong>, optimización de bases de datos relacionales y no relacionales, y despliegue con <strong class="text-slate-200 font-semibold">Docker</strong>. Transformo lógica compleja de negocio en arquitecturas limpias y eficientes.
+                </p>
+
+                <!-- Action Buttons -->
+                <div class="pt-4 flex flex-wrap gap-4 items-center w-full sm:w-auto">
+                    <a href="#projects" class="px-7 py-3.5 rounded-xl bg-gradient-to-r from-emerald-500 to-cyan-500 text-slate-950 font-bold text-sm hover:opacity-90 transition-all transform hover:-translate-y-0.5 shadow-lg shadow-emerald-500/20 flex items-center gap-2 w-full sm:w-auto justify-center">
+                        <i class="fa-solid fa-laptop-code"></i> Ver Proyectos
+                    </a>
+                    
+                    <!-- Botón CV con simulación de descarga -->
+                    <a href="mailto:santiagocarmonacanas@gmail.com?subject=Solicitud%20de%20CV%20-%20Santiago%20Carmona" target="_blank" class="px-7 py-3.5 rounded-xl bg-slate-900 text-slate-200 border border-slate-700 hover:border-emerald-500/50 hover:text-emerald-400 font-semibold text-sm transition-all transform hover:-translate-y-0.5 flex items-center gap-2 w-full sm:w-auto justify-center">
+                        <i class="fa-solid fa-file-arrow-down"></i> Solicitar CV
+                    </a>
+                </div>
+
+                <!-- Redes Sociales Rápidas -->
+                <div class="pt-6 flex items-center space-x-6 text-slate-400">
+                    <span class="text-xs font-mono uppercase tracking-widest text-slate-500">Conecta conmigo:</span>
+                    <a href="https://github.com/CsantiagoC01" target="_blank" rel="noopener noreferrer" class="hover:text-emerald-400 text-xl transition-colors" title="GitHub">
+                        <i class="fa-brands fa-github"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/santiago-carmona-b77529385" target="_blank" rel="noopener noreferrer" class="hover:text-emerald-400 text-xl transition-colors" title="LinkedIn">
+                        <i class="fa-brands fa-linkedin"></i>
+                    </a>
+                    <a href="mailto:santiagocarmonacanas@gmail.com" class="hover:text-emerald-400 text-xl transition-colors" title="Correo">
+                        <i class="fa-solid fa-envelope"></i>
+                    </a>
+                </div>
+
             </div>
-          </div>
+        </section>
 
-          <div class="hero-card">
-            <div class="mini-card">
-              <span class="label">Especialidad</span>
-              <strong>Frontend &amp; UX</strong>
+        <!-- 2. SOBRE MÍ & STACK TECNOLÓGICO -->
+        <section id="about" class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-t border-slate-900">
+            <div class="flex items-center gap-3 mb-12">
+                <span class="text-emerald-400 font-mono text-xl">01.</span>
+                <h2 class="text-2xl sm:text-3xl font-bold text-slate-100">Sobre Mí & Competencias</h2>
+                <div class="h-px bg-slate-800 flex-grow max-w-md ml-4"></div>
             </div>
-            <div class="mini-card accent">
-              <span class="label">Intereses</span>
-              <strong>Diseño · Desarrollo · Educación</strong>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+                
+                <!-- Extracto Profesional -->
+                <div class="lg:col-span-7 space-y-6 text-slate-300 leading-relaxed text-base">
+                    <p>
+                        Mi enfoque principal se centra en el <strong class="text-emerald-400">desarrollo Backend</strong>. Me apasiona resolver problemas lógicos complejos estructurando arquitecturas de software modulares, limpias y mantenibles. Disfruto asegurar la integridad de los datos y diseñar servicios capaces de procesar alto tráfico sin comprometer tiempos de respuesta.
+                    </p>
+                    <p>
+                        Cuento con una fuerte capacidad de comunicación, adaptabilidad técnica y autonomía para trabajar bajo entornos ágiles. Combino mis sólidas bases en bases de datos relacionales (<strong class="text-slate-100">PostgreSQL, MySQL</strong>) con frameworks modernos de microservicios e integración continua.
+                    </p>
+                    <p>
+                        Además de escribir código backend con Python (FastAPI) y Node.js/TypeScript, cuento con capacidades para colaborar fluidamente con frontend utilizando React y Next.js.
+                    </p>
+
+                    <!-- Hitos / Formación Destacada -->
+                    <div class="pt-4 border-t border-slate-800/80">
+                        <h3 class="text-slate-100 font-semibold mb-4 flex items-center gap-2">
+                            <i class="fa-solid fa-graduation-cap text-emerald-400"></i> Formación & Certificaciones
+                        </h3>
+                        <div class="space-y-4 font-sans text-sm">
+                            <div class="bg-slate-900/60 p-4 rounded-xl border border-slate-800/80 flex justify-between items-start">
+                                <div>
+                                    <h4 class="font-bold text-slate-200">Tecnólogo en Análisis y Desarrollo de Software (ADSO)</h4>
+                                    <p class="text-slate-400 text-xs mt-1">SENA (Servicio Nacional de Aprendizaje)</p>
+                                </div>
+                                <span class="text-xs font-mono bg-emerald-500/10 text-emerald-400 px-2 py-1 rounded">En curso / Graduación</span>
+                            </div>
+                            <div class="bg-slate-900/60 p-4 rounded-xl border border-slate-800/80 flex justify-between items-start">
+                                <div>
+                                    <h4 class="font-bold text-slate-200">Desarrollo Web Full Stack & Arquitectura Backend</h4>
+                                    <p class="text-slate-400 text-xs mt-1">Autoaprendizaje continuo, Bootcamps y Cursos Especializados</p>
+                                </div>
+                                <span class="text-xs font-mono bg-cyan-500/10 text-cyan-400 px-2 py-1 rounded">Constante</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Grid de Tecnologías Organizadas -->
+                <div class="lg:col-span-5 space-y-6">
+                    <div class="bg-slate-900/80 rounded-2xl p-6 border border-slate-800/80 shadow-xl space-y-6">
+                        <h3 class="text-lg font-bold text-slate-100 border-b border-slate-800 pb-3 flex items-center justify-between">
+                            <span>Stack Tecnológico</span>
+                            <i class="fa-solid fa-layer-group text-emerald-400"></i>
+                        </h3>
+
+                        <!-- Backend Group -->
+                        <div>
+                            <span class="text-xs font-mono text-emerald-400 uppercase tracking-wider block mb-3">Backend & Lenguajes</span>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-3 py-1.5 rounded-lg bg-slate-800 text-slate-200 text-xs font-mono border border-slate-700/60 hover:border-emerald-500 transition-colors flex items-center gap-1.5">
+                                    <i class="fa-brands fa-python text-yellow-400"></i> Python
+                                </span>
+                                <span class="px-3 py-1.5 rounded-lg bg-slate-800 text-slate-200 text-xs font-mono border border-slate-700/60 hover:border-emerald-500 transition-colors flex items-center gap-1.5">
+                                    <i class="fa-solid fa-bolt text-teal-400"></i> FastAPI
+                                </span>
+                                <span class="px-3 py-1.5 rounded-lg bg-slate-800 text-slate-200 text-xs font-mono border border-slate-700/60 hover:border-emerald-500 transition-colors flex items-center gap-1.5">
+                                    <i class="fa-brands fa-js text-yellow-300"></i> JavaScript
+                                </span>
+                                <span class="px-3 py-1.5 rounded-lg bg-slate-800 text-slate-200 text-xs font-mono border border-slate-700/60 hover:border-emerald-500 transition-colors flex items-center gap-1.5">
+                                    <i class="fa-brands fa-node-js text-green-500"></i> Node.js
+                                </span>
+                                <span class="px-3 py-1.5 rounded-lg bg-slate-800 text-slate-200 text-xs font-mono border border-slate-700/60 hover:border-emerald-500 transition-colors flex items-center gap-1.5">
+                                    <i class="fa-solid fa-code text-blue-400"></i> TypeScript
+                                </span>
+                                <span class="px-3 py-1.5 rounded-lg bg-slate-800 text-slate-200 text-xs font-mono border border-slate-700/60 hover:border-emerald-500 transition-colors flex items-center gap-1.5">
+                                    <i class="fa-brands fa-php text-indigo-400"></i> PHP
+                                </span>
+                            </div>
+                        </div>
+
+                        <!-- Databases & DevOps Group -->
+                        <div>
+                            <span class="text-xs font-mono text-cyan-400 uppercase tracking-wider block mb-3">Bases de Datos & DevOps</span>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-3 py-1.5 rounded-lg bg-slate-800 text-slate-200 text-xs font-mono border border-slate-700/60 hover:border-cyan-500 transition-colors flex items-center gap-1.5">
+                                    <i class="fa-solid fa-database text-blue-400"></i> PostgreSQL
+                                </span>
+                                <span class="px-3 py-1.5 rounded-lg bg-slate-800 text-slate-200 text-xs font-mono border border-slate-700/60 hover:border-cyan-500 transition-colors flex items-center gap-1.5">
+                                    <i class="fa-brands fa-docker text-blue-500"></i> Docker
+                                </span>
+                                <span class="px-3 py-1.5 rounded-lg bg-slate-800 text-slate-200 text-xs font-mono border border-slate-700/60 hover:border-cyan-500 transition-colors flex items-center gap-1.5">
+                                    <i class="fa-solid fa-server text-amber-500"></i> MySQL
+                                </span>
+                                <span class="px-3 py-1.5 rounded-lg bg-slate-800 text-slate-200 text-xs font-mono border border-slate-700/60 hover:border-cyan-500 transition-colors flex items-center gap-1.5">
+                                    <i class="fa-solid fa-leaf text-green-400"></i> MongoDB
+                                </span>
+                                <span class="px-3 py-1.5 rounded-lg bg-slate-800 text-slate-200 text-xs font-mono border border-slate-700/60 hover:border-cyan-500 transition-colors flex items-center gap-1.5">
+                                    <i class="fa-brands fa-git-alt text-orange-500"></i> Git
+                                </span>
+                            </div>
+                        </div>
+
+                        <!-- Frontend Group -->
+                        <div>
+                            <span class="text-xs font-mono text-slate-400 uppercase tracking-wider block mb-3">Frontend Support</span>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-3 py-1.5 rounded-lg bg-slate-800 text-slate-200 text-xs font-mono border border-slate-700/60 hover:border-slate-500 transition-colors flex items-center gap-1.5">
+                                    <i class="fa-brands fa-react text-cyan-400"></i> React
+                                </span>
+                                <span class="px-3 py-1.5 rounded-lg bg-slate-800 text-slate-200 text-xs font-mono border border-slate-700/60 hover:border-slate-500 transition-colors flex items-center gap-1.5">
+                                    <i class="fa-solid fa-terminal text-white"></i> Next.js
+                                </span>
+                                <span class="px-3 py-1.5 rounded-lg bg-slate-800 text-slate-200 text-xs font-mono border border-slate-700/60 hover:border-slate-500 transition-colors flex items-center gap-1.5">
+                                    <i class="fa-brands fa-css3-alt text-cyan-300"></i> Tailwind CSS
+                                </span>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
             </div>
-            <div class="mini-card">
-              <span class="label">Ahora</span>
-              <strong>Escribiendo y construyendo</strong>
+        </section>
+
+        <!-- 3. PROYECTOS DESTACADOS -->
+        <section id="projects" class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-t border-slate-900">
+            <div class="flex items-center gap-3 mb-12">
+                <span class="text-emerald-400 font-mono text-xl">02.</span>
+                <h2 class="text-2xl sm:text-3xl font-bold text-slate-100">Proyectos Destacados</h2>
+                <div class="h-px bg-slate-800 flex-grow max-w-md ml-4"></div>
             </div>
-          </div>
-        </div>
-      </section>
 
-      <section id="blog" class="section">
-        <div class="container">
-          <div class="section-heading">
-            <p class="section-tag">Blog</p>
-            <h2>Últimos artículos</h2>
-          </div>
-          <div id="featured-grid" class="post-grid"></div>
-        </div>
-      </section>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Proyecto 1: PISST -->
+                <article class="bg-slate-900 rounded-2xl border border-slate-800 overflow-hidden hover:border-emerald-500/50 transition-all duration-300 hover:-translate-y-1.5 flex flex-col justify-between group shadow-xl">
+                    <div class="p-6 space-y-4">
+                        <div class="flex items-center justify-between">
+                            <div class="w-12 h-12 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center text-xl font-mono border border-emerald-500/20">
+                                <i class="fa-solid fa-shield-halved"></i>
+                            </div>
+                            <div class="flex items-center space-x-3 text-slate-400 text-lg">
+                                <a href="https://github.com/CsantiagoC01" target="_blank" rel="noopener noreferrer" class="hover:text-emerald-400 transition-colors" title="Código en GitHub">
+                                    <i class="fa-brands fa-github"></i>
+                                </a>
+                                <a href="https://github.com/CsantiagoC01" target="_blank" rel="noopener noreferrer" class="hover:text-emerald-400 transition-colors" title="Demo en Vivo">
+                                    <i class="fa-solid fa-up-right-from-square text-base"></i>
+                                </a>
+                            </div>
+                        </div>
 
-      <section id="sobre-mi" class="section muted">
-        <div class="container two-columns">
-          <div>
-            <p class="section-tag">Sobre mí</p>
-            <h2>Me gusta explicar ideas claras y útiles.</h2>
-          </div>
-          <div>
-            <p>
-              Soy Santiago, me apasiona crear experiencias digitales con sentido y ayudar a otras
-              personas a entender mejor el diseño y la tecnología.
-            </p>
-            <p>
-              En este blog comparto reflexiones, recursos y aprendizajes sobre desarrollo web, UX
-              y trabajo creativo.
-            </p>
-          </div>
-        </div>
-      </section>
+                        <div>
+                            <span class="text-xs font-mono text-emerald-400 tracking-wider">PLATAFORMA SST & AUDITORÍA</span>
+                            <h3 class="text-xl font-bold text-slate-100 group-hover:text-emerald-400 transition-colors mt-1">
+                                PISST - Plataforma Integral de SST
+                            </h3>
+                        </div>
 
-      <section id="proyectos" class="section">
-        <div class="container">
-          <div class="section-heading">
-            <p class="section-tag">Proyectos</p>
-            <h2>Lo que he construido</h2>
-          </div>
-          <div class="projects-grid">
-            <article class="project-card">
-              <div class="project-visual">UI</div>
-              <div class="project-body">
-                <span class="project-tag">Frontend</span>
-                <h3>Landing page</h3>
-                <p>Diseño y desarrollo de una página para captar clientes y presentar un producto.</p>
-              </div>
-            </article>
-            <article class="project-card">
-              <div class="project-visual">UX</div>
-              <div class="project-body">
-                <span class="project-tag">UX/UI</span>
-                <h3>Experiencia digital</h3>
-                <p>Mejoras de flujo y estructura para hacer productos más claros y eficientes.</p>
-              </div>
-            </article>
-            <article class="project-card">
-              <div class="project-visual">WEB</div>
-              <div class="project-body">
-                <span class="project-tag">Desarrollo</span>
-                <h3>Página personal</h3>
-                <p>Diseño y desarrollo de un sitio que refleja identidad, trayectoria y contenido.</p>
-              </div>
-            </article>
-          </div>
-        </div>
-      </section>
+                        <p class="text-slate-400 text-sm leading-relaxed">
+                            API RESTful modular en FastAPI y PostgreSQL para la gestión integral de Seguridad y Salud en el Trabajo. Implementa autenticación JWT, rol de usuarios, generación de reportes e integración en contenedores Docker.
+                        </p>
+                    </div>
 
-      <section id="contacto" class="section contact-section">
-        <div class="container contact-box">
-          <div>
-            <p class="section-tag">Contacto</p>
-            <h2>¿Quieres hablar sobre un proyecto o colaboración?</h2>
-            <p>Estoy abierto a oportunidades, ideas y conversaciones creativas.</p>
-          </div>
+                    <div class="p-6 pt-0 space-y-4">
+                        <div class="flex flex-wrap gap-2 font-mono text-xs text-slate-300">
+                            <span class="px-2.5 py-1 rounded bg-slate-800 border border-slate-700/60">FastAPI</span>
+                            <span class="px-2.5 py-1 rounded bg-slate-800 border border-slate-700/60">Python</span>
+                            <span class="px-2.5 py-1 rounded bg-slate-800 border border-slate-700/60">PostgreSQL</span>
+                            <span class="px-2.5 py-1 rounded bg-slate-800 border border-slate-700/60">Docker</span>
+                        </div>
+                    </div>
+                </article>
 
-          <form id="contact-form" class="contact-form">
-            <label>
-              Nombre
-              <input type="text" name="name" placeholder="Tu nombre" required />
-            </label>
-            <label>
-              Email
-              <input type="email" name="email" placeholder="tucorreo@email.com" required />
-            </label>
-            <label>
-              Mensaje
-              <textarea name="message" rows="5" placeholder="Cuéntame sobre tu idea" required></textarea>
-            </label>
-            <button type="submit" class="btn btn-primary">Enviar mensaje</button>
-            <p id="form-response" class="form-response" aria-live="polite"></p>
-          </form>
-        </div>
-      </section>
+                <!-- Proyecto 2: SABER 360 -->
+                <article class="bg-slate-900 rounded-2xl border border-slate-800 overflow-hidden hover:border-emerald-500/50 transition-all duration-300 hover:-translate-y-1.5 flex flex-col justify-between group shadow-xl">
+                    <div class="p-6 space-y-4">
+                        <div class="flex items-center justify-between">
+                            <div class="w-12 h-12 rounded-xl bg-cyan-500/10 text-cyan-400 flex items-center justify-center text-xl font-mono border border-cyan-500/20">
+                                <i class="fa-solid fa-qrcode"></i>
+                            </div>
+                            <div class="flex items-center space-x-3 text-slate-400 text-lg">
+                                <a href="https://github.com/CsantiagoC01" target="_blank" rel="noopener noreferrer" class="hover:text-emerald-400 transition-colors" title="Código en GitHub">
+                                    <i class="fa-brands fa-github"></i>
+                                </a>
+                                <a href="https://github.com/CsantiagoC01" target="_blank" rel="noopener noreferrer" class="hover:text-emerald-400 transition-colors" title="Demo en Vivo">
+                                    <i class="fa-solid fa-up-right-from-square text-base"></i>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div>
+                            <span class="text-xs font-mono text-cyan-400 tracking-wider">CONTROL DE ACCESO & QR</span>
+                            <h3 class="text-xl font-bold text-slate-100 group-hover:text-emerald-400 transition-colors mt-1">
+                                SABER 360 - Sistema de Control Educativo
+                            </h3>
+                        </div>
+
+                        <p class="text-slate-400 text-sm leading-relaxed">
+                            Arquitectura Backend para validación dinámica de códigos QR en tiempo real. Utilizada para control asistencial e ingreso de transporte escolar, garantizando respuesta en milisegundos y registros auditables.
+                        </p>
+                    </div>
+
+                    <div class="p-6 pt-0 space-y-4">
+                        <div class="flex flex-wrap gap-2 font-mono text-xs text-slate-300">
+                            <span class="px-2.5 py-1 rounded bg-slate-800 border border-slate-700/60">TypeScript</span>
+                            <span class="px-2.5 py-1 rounded bg-slate-800 border border-slate-700/60">Node.js</span>
+                            <span class="px-2.5 py-1 rounded bg-slate-800 border border-slate-700/60">MySQL</span>
+                            <span class="px-2.5 py-1 rounded bg-slate-800 border border-slate-700/60">REST API</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Proyecto 3: POS Tienda El Edén -->
+                <article class="bg-slate-900 rounded-2xl border border-slate-800 overflow-hidden hover:border-emerald-500/50 transition-all duration-300 hover:-translate-y-1.5 flex flex-col justify-between group shadow-xl">
+                    <div class="p-6 space-y-4">
+                        <div class="flex items-center justify-between">
+                            <div class="w-12 h-12 rounded-xl bg-blue-500/10 text-blue-400 flex items-center justify-center text-xl font-mono border border-blue-500/20">
+                                <i class="fa-solid fa-cash-register"></i>
+                            </div>
+                            <div class="flex items-center space-x-3 text-slate-400 text-lg">
+                                <a href="https://github.com/CsantiagoC01" target="_blank" rel="noopener noreferrer" class="hover:text-emerald-400 transition-colors" title="Código en GitHub">
+                                    <i class="fa-brands fa-github"></i>
+                                </a>
+                                <a href="https://github.com/CsantiagoC01" target="_blank" rel="noopener noreferrer" class="hover:text-emerald-400 transition-colors" title="Demo en Vivo">
+                                    <i class="fa-solid fa-up-right-from-square text-base"></i>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div>
+                            <span class="text-xs font-mono text-blue-400 tracking-wider">GESTIÓN COMERCIAL & CARTERA</span>
+                            <h3 class="text-xl font-bold text-slate-100 group-hover:text-emerald-400 transition-colors mt-1">
+                                POS Tienda El Edén
+                            </h3>
+                        </div>
+
+                        <p class="text-slate-400 text-sm leading-relaxed">
+                            Sistema de punto de venta e inventario en tiempo real. Incluye módulos de cuentas por cobrar (cartera), historial de transacciones e integración de alertas automáticas mediante API de mensajería WhatsApp.
+                        </p>
+                    </div>
+
+                    <div class="p-6 pt-0 space-y-4">
+                        <div class="flex flex-wrap gap-2 font-mono text-xs text-slate-300">
+                            <span class="px-2.5 py-1 rounded bg-slate-800 border border-slate-700/60">JavaScript</span>
+                            <span class="px-2.5 py-1 rounded bg-slate-800 border border-slate-700/60">React</span>
+                            <span class="px-2.5 py-1 rounded bg-slate-800 border border-slate-700/60">PostgreSQL</span>
+                            <span class="px-2.5 py-1 rounded bg-slate-800 border border-slate-700/60">Tailwind</span>
+                        </div>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+
+        <!-- 4. SECCIÓN BLOG TECNOLÓGICO -->
+        <section id="blog" class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-t border-slate-900">
+            <div class="flex items-center gap-3 mb-12">
+                <span class="text-emerald-400 font-mono text-xl">03.</span>
+                <h2 class="text-2xl sm:text-3xl font-bold text-slate-100">Artículos Tecnológicos</h2>
+                <div class="h-px bg-slate-800 flex-grow max-w-md ml-4"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                
+                <!-- Artículo 1 -->
+                <article class="bg-slate-900/60 p-8 rounded-2xl border border-slate-800 hover:border-slate-700 transition-all flex flex-col justify-between group">
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-between text-xs font-mono text-slate-400">
+                            <span class="text-emerald-400 flex items-center gap-1.5">
+                                <i class="fa-solid fa-tag"></i> Bases de Datos
+                            </span>
+                            <span>12 Oct, 2026 • 5 min lectura</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-100 group-hover:text-emerald-400 transition-colors leading-snug">
+                            Optimizando consultas en PostgreSQL para APIs de alto rendimiento
+                        </h3>
+                        <p class="text-slate-400 text-sm leading-relaxed">
+                            Exploramos técnicas fundamentales como la creación de índices compuestos adecuados, uso de la sentencia EXPLAIN ANALYZE para detectar cuellos de botella y estrategias de Connection Pooling con Pgbouncer.
+                        </p>
+                    </div>
+
+                    <div class="pt-6 mt-6 border-t border-slate-800/60 flex items-center justify-between">
+                        <a href="#contact" class="text-xs font-mono font-semibold text-emerald-400 hover:text-emerald-300 flex items-center gap-1">
+                            Leer artículo completo <i class="fa-solid fa-arrow-right text-xs"></i>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Artículo 2 -->
+                <article class="bg-slate-900/60 p-8 rounded-2xl border border-slate-800 hover:border-slate-700 transition-all flex flex-col justify-between group">
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-between text-xs font-mono text-slate-400">
+                            <span class="text-cyan-400 flex items-center gap-1.5">
+                                <i class="fa-solid fa-tag"></i> Arquitectura Backend
+                            </span>
+                            <span>28 Sep, 2026 • 7 min lectura</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-100 group-hover:text-emerald-400 transition-colors leading-snug">
+                            Construyendo arquitecturas modulares con Python, FastAPI y Docker
+                        </h3>
+                        <p class="text-slate-400 text-sm leading-relaxed">
+                            Una guía práctica paso a paso para estructurar proyectos escalables aplicando la separación de responsabilidades (Clean Architecture), inyección de dependencias nativa en FastAPI y orquestación multi-contenedor.
+                        </p>
+                    </div>
+
+                    <div class="pt-6 mt-6 border-t border-slate-800/60 flex items-center justify-between">
+                        <a href="#contact" class="text-xs font-mono font-semibold text-cyan-400 hover:text-cyan-300 flex items-center gap-1">
+                            Leer artículo completo <i class="fa-solid fa-arrow-right text-xs"></i>
+                        </a>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+
+        <!-- 5. CONTACTO -->
+        <section id="contact" class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-t border-slate-900">
+            <div class="max-w-4xl mx-auto text-center space-y-4 mb-12">
+                <span class="text-emerald-400 font-mono text-sm font-semibold">04. ¿QUÉ SIGUE?</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-100">Ponte en Contacto</h2>
+                <p class="text-slate-400 max-w-xl mx-auto text-sm sm:text-base">
+                    Actualmente estoy buscando nuevas oportunidades laborales como Desarrollador Backend. Si tienes una consulta, una propuesta o simplemente quieres saludar, ¡mi bandeja de entrada está abierta!
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start max-w-5xl mx-auto">
+                
+                <!-- Información Directa de Contacto -->
+                <div class="lg:col-span-5 bg-slate-900 p-8 rounded-2xl border border-slate-800 space-y-6">
+                    <h3 class="text-lg font-bold text-slate-100 border-b border-slate-800 pb-3">Información de contacto</h3>
+                    
+                    <!-- Email Copiable -->
+                    <div class="space-y-2">
+                        <span class="text-xs font-mono text-slate-400">Correo Electrónico:</span>
+                        <div class="bg-slate-950 p-3 rounded-xl border border-slate-800 flex items-center justify-between gap-2">
+                            <span id="email-text" class="font-mono text-xs sm:text-sm text-emerald-400 truncate">santiagocarmonacanas@gmail.com</span>
+                            <button id="copy-email-btn" type="button" class="px-3 py-1.5 bg-slate-800 hover:bg-emerald-500 hover:text-slate-950 text-slate-300 rounded-lg text-xs font-mono font-bold transition-all flex items-center gap-1 shrink-0" title="Copiar correo">
+                                <i class="fa-regular fa-copy"></i>
+                                <span id="copy-btn-text">Copiar</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Canales Sociales Directos -->
+                    <div class="space-y-3 pt-2">
+                        <span class="text-xs font-mono text-slate-400">Perfiles Profesionales:</span>
+                        <div class="space-y-2">
+                            <a href="https://github.com/CsantiagoC01" target="_blank" rel="noopener noreferrer" class="flex items-center gap-3 p-3 rounded-xl bg-slate-950 border border-slate-800 hover:border-emerald-500/50 transition-colors text-slate-200">
+                                <i class="fa-brands fa-github text-lg text-emerald-400"></i>
+                                <span class="text-sm font-mono">github.com/CsantiagoC01</span>
+                            </a>
+                            <a href="https://www.linkedin.com/in/santiago-carmona-b77529385" target="_blank" rel="noopener noreferrer" class="flex items-center gap-3 p-3 rounded-xl bg-slate-950 border border-slate-800 hover:border-emerald-500/50 transition-colors text-slate-200">
+                                <i class="fa-brands fa-linkedin text-lg text-cyan-400"></i>
+                                <span class="text-sm font-mono truncate">linkedin.com/in/santiago-carmona</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Formulario Estético de Contacto -->
+                <div class="lg:col-span-7 bg-slate-900 p-8 rounded-2xl border border-slate-800">
+                    <form id="contact-form" class="space-y-4">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label for="name" class="block text-xs font-mono text-slate-300 mb-1">Nombre Completo</label>
+                                <input type="text" id="name" required placeholder="Tu nombre" class="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-800 text-slate-100 placeholder-slate-600 focus:outline-none focus:border-emerald-500 text-sm">
+                            </div>
+                            <div>
+                                <label for="email" class="block text-xs font-mono text-slate-300 mb-1">Correo Electrónico</label>
+                                <input type="email" id="email" required placeholder="tu@email.com" class="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-800 text-slate-100 placeholder-slate-600 focus:outline-none focus:border-emerald-500 text-sm">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label for="subject" class="block text-xs font-mono text-slate-300 mb-1">Asunto</label>
+                            <input type="text" id="subject" required placeholder="Oportunidad laboral / Consulta" class="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-800 text-slate-100 placeholder-slate-600 focus:outline-none focus:border-emerald-500 text-sm">
+                        </div>
+
+                        <div>
+                            <label for="message" class="block text-xs font-mono text-slate-300 mb-1">Mensaje</label>
+                            <textarea id="message" rows="4" required placeholder="Escribe tu mensaje aquí..." class="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-800 text-slate-100 placeholder-slate-600 focus:outline-none focus:border-emerald-500 text-sm resize-none"></textarea>
+                        </div>
+
+                        <!-- Feedback de Envío Formulario -->
+                        <div id="form-feedback" class="hidden p-3 rounded-xl text-xs font-mono"></div>
+
+                        <button type="submit" class="w-full py-3.5 px-6 rounded-xl bg-gradient-to-r from-emerald-500 to-cyan-500 text-slate-950 font-bold text-sm hover:opacity-90 transition-all flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-paper-plane"></i> Enviar Mensaje
+                        </button>
+                    </form>
+                </div>
+
+            </div>
+        </section>
+
     </main>
 
-    <footer class="site-footer">
-      <div class="container footer-inner">
-        <p>© 2026 Santiago Carmona</p>
-        <div class="socials">
-          <a href="https://github.com/CsantiagoC01" target="_blank" rel="noreferrer">GitHub</a>
-          <a href="https://www.linkedin.com" target="_blank" rel="noreferrer">LinkedIn</a>
-          <a href="https://instagram.com" target="_blank" rel="noreferrer">Instagram</a>
+    <!-- ========================================== -->
+    <!-- FOOTER -->
+    <!-- ========================================== -->
+    <footer class="bg-slate-950 border-t border-slate-900 py-8 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-slate-500">
+            <div>
+                &copy; 2026 Santiago Carmona Cañas. Todos los derechos reservados.
+            </div>
+
+            <!-- Social Links Footer -->
+            <div class="flex items-center space-x-6 text-slate-400 text-base">
+                <a href="https://github.com/CsantiagoC01" target="_blank" rel="noopener noreferrer" class="hover:text-emerald-400 transition-colors" title="GitHub">
+                    <i class="fa-brands fa-github"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/santiago-carmona-b77529385" target="_blank" rel="noopener noreferrer" class="hover:text-emerald-400 transition-colors" title="LinkedIn">
+                    <i class="fa-brands fa-linkedin"></i>
+                </a>
+                <a href="mailto:santiagocarmonacanas@gmail.com" class="hover:text-emerald-400 transition-colors" title="Correo">
+                    <i class="fa-solid fa-envelope"></i>
+                </a>
+            </div>
         </div>
-      </div>
     </footer>
 
-    <script src="script.js"></script>
-  </body>
+    <!-- ========================================== -->
+    <!-- JAVASCRIPT INTERACTIVO -->
+    <!-- ========================================== -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+
+            // 1. Menú Móvil Interactivo
+            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const mobileLinks = document.querySelectorAll('.mobile-link');
+
+            if (mobileMenuBtn && mobileMenu) {
+                mobileMenuBtn.addEventListener('click', () => {
+                    mobileMenu.classList.toggle('hidden');
+                });
+
+                mobileLinks.forEach(link => {
+                    link.addEventListener('click', () => {
+                        mobileMenu.classList.add('hidden');
+                    });
+                });
+            }
+
+            // 2. Función Copiar Correo al Portapapeles con feedback
+            const copyEmailBtn = document.getElementById('copy-email-btn');
+            const emailText = document.getElementById('email-text').innerText;
+            const copyBtnText = document.getElementById('copy-btn-text');
+
+            if (copyEmailBtn) {
+                copyEmailBtn.addEventListener('click', () => {
+                    // Fallback usando document.execCommand para entornos restricción iFrame
+                    const tempInput = document.createElement('input');
+                    tempInput.value = emailText;
+                    document.body.appendChild(tempInput);
+                    tempInput.select();
+                    
+                    try {
+                        document.execCommand('copy');
+                        copyBtnText.innerText = '¡Copiado!';
+                        copyEmailBtn.classList.remove('bg-slate-800', 'text-slate-300');
+                        copyEmailBtn.classList.add('bg-emerald-400', 'text-slate-950');
+
+                        setTimeout(() => {
+                            copyBtnText.innerText = 'Copiar';
+                            copyEmailBtn.classList.remove('bg-emerald-400', 'text-slate-950');
+                            copyEmailBtn.classList.add('bg-slate-800', 'text-slate-300');
+                        }, 2500);
+                    } catch (err) {
+                        console.error('Error al copiar el texto: ', err);
+                    } finally {
+                        document.body.removeChild(tempInput);
+                    }
+                });
+            }
+
+            // 3. Simulación de Formulario de Contacto
+            const contactForm = document.getElementById('contact-form');
+            const formFeedback = document.getElementById('form-feedback');
+
+            if (contactForm && formFeedback) {
+                contactForm.addEventListener('submit', (e) => {
+                    e.preventDefault();
+
+                    const name = document.getElementById('name').value;
+
+                    formFeedback.classList.remove('hidden', 'bg-red-500/10', 'text-red-400', 'border-red-500/20');
+                    formFeedback.classList.add('bg-emerald-500/10', 'text-emerald-400', 'border', 'border-emerald-500/20');
+                    formFeedback.innerHTML = `<i class="fa-solid fa-circle-check mr-2"></i> ¡Gracias ${name}! Tu mensaje ha sido enviado correctamente. Te responderé muy pronto.`;
+
+                    contactForm.reset();
+
+                    setTimeout(() => {
+                        formFeedback.classList.add('hidden');
+                    }, 5000);
+                });
+            }
+
+        });
+    </script>
+</body>
 </html>
