@@ -1,99 +1,133 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" role="img" aria-label="Santiago Carmona avatar">
   <defs>
-    <linearGradient id="bgGrad" x1="0" x2="1" y1="0" y2="1">
-      <stop offset="0%" stop-color="#0b2a4b"/>
-      <stop offset="100%" stop-color="#081a2c"/>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0%" stop-color="#0d1f38"/>
+      <stop offset="100%" stop-color="#0a1a2d"/>
     </linearGradient>
-    <linearGradient id="hoodieGrad" x1="0" x2="1">
-      <stop offset="0%" stop-color="#55657a"/>
-      <stop offset="100%" stop-color="#2f3d4f"/>
+    <linearGradient id="ring" x1="0" x2="1">
+      <stop offset="0%" stop-color="#8ce4ff"/>
+      <stop offset="100%" stop-color="#6cc9f5"/>
     </linearGradient>
-    <linearGradient id="screenGrad" x1="0" x2="1">
-      <stop offset="0%" stop-color="#0f1f2f"/>
-      <stop offset="100%" stop-color="#1a2b38"/>
+    <linearGradient id="hoodie" x1="0" x2="1">
+      <stop offset="0%" stop-color="#59687a"/>
+      <stop offset="100%" stop-color="#2b3749"/>
     </linearGradient>
-    <linearGradient id="skinGrad" x1="0" x2="0" y1="0" y2="1">
-      <stop offset="0%" stop-color="#f7d9b2"/>
-      <stop offset="100%" stop-color="#e4b98a"/>
+    <linearGradient id="screen" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0%" stop-color="#13263f"/>
+      <stop offset="100%" stop-color="#0f1d30"/>
     </linearGradient>
-    <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
-      <feDropShadow dx="0" dy="12" stdDeviation="12" flood-color="#020b18" flood-opacity="0.35"/>
+    <linearGradient id="skin" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0%" stop-color="#f7d8b1"/>
+      <stop offset="100%" stop-color="#e5b68a"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="160%">
+      <feDropShadow dx="0" dy="10" stdDeviation="12" flood-color="#06131d" flood-opacity="0.35"/>
     </filter>
   </defs>
 
-  <circle cx="400" cy="400" r="360" fill="url(#bgGrad)"/>
-  <circle cx="400" cy="400" r="335" fill="none" stroke="#7be7ff" stroke-width="12" opacity="0.9"/>
+  <circle cx="400" cy="400" r="355" fill="url(#bg)"/>
+  <circle cx="400" cy="400" r="330" fill="none" stroke="url(#ring)" stroke-width="14"/>
 
-  <g filter="url(#softShadow)">
-    <rect x="150" y="250" width="200" height="140" rx="12" fill="url(#screenGrad)" stroke="#4fb7ff" stroke-width="6"/>
-    <rect x="142" y="392" width="214" height="16" rx="8" fill="#10273b"/>
-    <rect x="190" y="415" width="134" height="18" rx="9" fill="#10273b"/>
-    <g fill="none" stroke-linecap="round" stroke-width="8">
-      <path d="M185 300 L235 300" stroke="#5eead4"/>
-      <path d="M185 320 L215 320" stroke="#7dd3fc"/>
-      <path d="M185 340 L250 340" stroke="#f9a8d4"/>
-      <path d="M185 360 L215 360" stroke="#c4b5fd"/>
-      <path d="M240 300 L285 300" stroke="#86efac"/>
-      <path d="M235 320 L290 320" stroke="#38bdf8"/>
-      <path d="M240 340 L278 340" stroke="#fca5a5"/>
-      <path d="M225 360 L280 360" stroke="#fbbf24"/>
+  <!-- laptop / monitor on left -->
+  <g filter="url(#shadow)">
+    <rect x="158" y="286" width="205" height="142" rx="12" fill="url(#screen)" stroke="#6ad4ff" stroke-width="6"/>
+    <line x1="150" y1="430" x2="365" y2="430" stroke="#0a233a" stroke-width="12" stroke-linecap="round"/>
+    <line x1="251" y1="430" x2="251" y2="458" stroke="#0a233a" stroke-width="10" stroke-linecap="round"/>
+
+    <g fill="none" stroke-linecap="round">
+      <path d="M180 320 L240 320" stroke="#6ee7b7" stroke-width="8"/>
+      <path d="M180 342 L222 342" stroke="#7dd3fc" stroke-width="8"/>
+      <path d="M180 364 L258 364" stroke="#f9a8d4" stroke-width="8"/>
+      <path d="M180 386 L228 386" stroke="#c4b5fd" stroke-width="8"/>
+      <path d="M245 320 L308 320" stroke="#8be9d9" stroke-width="8"/>
+      <path d="M244 342 L320 342" stroke="#4cc9f0" stroke-width="8"/>
+      <path d="M244 364 L300 364" stroke="#fb7185" stroke-width="8"/>
+      <path d="M244 386 L314 386" stroke="#fbbf24" stroke-width="8"/>
     </g>
   </g>
 
-  <g>
-    <path d="M250 475 L557 475 L590 670 L217 670 Z" fill="url(#hoodieGrad)"/>
-    <path d="M330 470 L470 470 L495 670 L305 670 Z" fill="#0c1425" opacity="0.5"/>
-    <path d="M268 448 L330 420 L370 475 L330 540 L268 520 Z" fill="#2b394d"/>
-    <path d="M532 448 L470 420 L430 475 L470 540 L532 520 Z" fill="#2b394d"/>
-    <path d="M295 415 Q400 380 505 415 L500 470 L300 470 Z" fill="#3a465c"/>
+  <!-- hoodie body -->
+  <g filter="url(#shadow)">
+    <path d="M270 505 L520 505 L560 690 L216 690 Z" fill="url(#hoodie)"/>
+    <path d="M310 500 L380 470 L430 500 L530 500 L557 690 L244 690 L270 500 Z" fill="#2a374a" opacity="0.7"/>
+    <path d="M300 490 L270 420 L350 470 L380 510 L320 540 Z" fill="#37465d"/>
+    <path d="M500 490 L530 420 L450 470 L420 510 L480 540 Z" fill="#37465d"/>
+    <path d="M318 510 L400 480 L482 510 L470 690 L330 690 Z" fill="#1f2a38" opacity="0.5"/>
+    <path d="M327 520 L400 497 L473 520 L456 690 L345 690 Z" fill="#232c3d" opacity="0.45"/>
   </g>
 
-  <g>
-    <path d="M305 205 Q400 150 495 205 L500 245 Q400 275 300 245 Z" fill="#7a4c29"/>
-    <path d="M312 225 Q400 180 488 225 Q465 285 400 305 Q335 285 312 225 Z" fill="#8d5b38"/>
-    <path d="M320 215 Q400 160 480 215 Q470 270 400 290 Q330 270 320 215 Z" fill="#7a4b30"/>
-    <path d="M350 182 Q390 170 430 182 L440 205 Q400 230 360 206 Z" fill="#5f3624" opacity="0.85"/>
-    <path d="M286 210 C330 150 360 130 400 130 C440 130 490 160 528 212" fill="none" stroke="#5a3620" stroke-width="18" stroke-linecap="round"/>
+  <!-- head and face -->
+  <g filter="url(#shadow)">
+    <!-- hair -->
+    <path d="M296 245 Q400 166 504 246 L500 310 Q400 285 300 310 Z" fill="#6f3e23"/>
+    <path d="M288 245 C320 170 360 142 400 142 C450 142 485 180 513 246" fill="none" stroke="#5f341d" stroke-width="18" stroke-linecap="round"/>
+    <path d="M300 266 Q360 210 430 206 Q470 210 490 232 L500 292 Q390 314 300 290 Z" fill="#7b452a"/>
+
+    <!-- face -->
+    <ellipse cx="400" cy="350" rx="150" ry="170" fill="url(#skin)"/>
+
+    <!-- ear -->
+    <ellipse cx="262" cy="350" rx="21" ry="30" fill="#e4b58b"/>
+    <ellipse cx="538" cy="350" rx="21" ry="30" fill="#e4b58b"/>
+
+    <!-- glasses -->
+    <circle cx="330" cy="347" r="42" fill="none" stroke="#23252d" stroke-width="12"/>
+    <circle cx="470" cy="347" r="42" fill="none" stroke="#23252d" stroke-width="12"/>
+    <path d="M370 347 H432" stroke="#23252d" stroke-width="10" stroke-linecap="round"/>
+    <path d="M270 355 Q318 340 330 347" fill="none" stroke="#2d2d2d" stroke-width="10" stroke-linecap="round"/>
+    <path d="M510 355 Q470 340 470 347" fill="none" stroke="#2d2d2d" stroke-width="10" stroke-linecap="round"/>
+
+    <!-- eyes -->
+    <circle cx="330" cy="347" r="9" fill="#1d242c"/>
+    <circle cx="470" cy="347" r="9" fill="#1d242c"/>
+    <circle cx="333" cy="344" r="3" fill="#fff"/>
+    <circle cx="473" cy="344" r="3" fill="#fff"/>
+
+    <!-- mouth/smile -->
+    <path d="M330 430 Q400 485 470 430" stroke="#ad5a40" stroke-width="10" fill="none" stroke-linecap="round"/>
+    <path d="M358 441 Q400 468 442 441" stroke="#f9d0a6" stroke-width="4" fill="none" stroke-linecap="round"/>
+
+    <!-- nose -->
+    <path d="M400 336 L400 398" stroke="#d9a37d" stroke-width="7" stroke-linecap="round"/>
+    <path d="M400 365 Q389 378 383 392" stroke="#d9a37d" stroke-width="6" fill="none" stroke-linecap="round"/>
+    <path d="M400 365 Q411 378 417 392" stroke="#d9a37d" stroke-width="6" fill="none" stroke-linecap="round"/>
+
+    <!-- cheeks -->
+    <circle cx="292" cy="389" r="17" fill="#f7b5aa" opacity="0.5"/>
+    <circle cx="508" cy="389" r="17" fill="#f7b5aa" opacity="0.5"/>
   </g>
 
+  <!-- headphones -->
   <g>
-    <ellipse cx="400" cy="350" rx="150" ry="170" fill="url(#skinGrad)"/>
-    <path d="M280 240 L340 190 Q385 170 425 188 L470 235 Q485 272 480 310 L452 300 Q440 245 400 230 Q360 245 350 300 L320 310 Q275 272 280 240 Z" fill="#7c4c2d"/>
-    <path d="M390 250 Q420 265 445 255" stroke="#6b442d" stroke-width="8" fill="none" stroke-linecap="round"/>
-    <path d="M355 250 Q325 265 300 255" stroke="#6b442d" stroke-width="8" fill="none" stroke-linecap="round"/>
-    <circle cx="335" cy="350" r="16" fill="#1b1b1b"/>
-    <circle cx="470" cy="350" r="16" fill="#1b1b1b"/>
-    <circle cx="330" cy="345" r="5" fill="#ffffff"/>
-    <circle cx="465" cy="345" r="5" fill="#ffffff"/>
-    <circle cx="365" cy="348" r="12" fill="#c2b4a6" opacity="0.55"/>
-    <circle cx="440" cy="348" r="12" fill="#c2b4a6" opacity="0.55"/>
-    <path d="M320 305 Q400 332 480 305" stroke="#3d3d3d" stroke-width="7" fill="none" stroke-linecap="round"/>
-    <ellipse cx="400" cy="380" rx="74" ry="40" fill="#f2d4b7" opacity="0.55"/>
-    <path d="M334 430 Q400 465 466 430" stroke="#d18d5e" stroke-width="10" fill="none" stroke-linecap="round"/>
-    <path d="M340 430 Q400 470 460 430" stroke="#f7d9b2" stroke-width="3" fill="none" stroke-linecap="round"/>
-    <path d="M360 430 Q400 448 440 430" stroke="#5d3d32" stroke-width="6" fill="none" stroke-linecap="round"/>
-    <path d="M310 350 L240 340" stroke="#d9dbe1" stroke-width="5" fill="none" stroke-linecap="round"/>
-    <path d="M490 350 L560 340" stroke="#d9dbe1" stroke-width="5" fill="none" stroke-linecap="round"/>
+    <path d="M282 460 C278 535 294 588 332 610" fill="none" stroke="#1a2333" stroke-width="10" stroke-linecap="round"/>
+    <path d="M518 460 C522 535 506 588 468 610" fill="none" stroke="#1a2333" stroke-width="10" stroke-linecap="round"/>
+    <rect x="297" y="458" width="24" height="110" rx="12" fill="#1c2330"/>
+    <rect x="479" y="458" width="24" height="110" rx="12" fill="#1c2330"/>
   </g>
 
-  <g>
-    <circle cx="348" cy="332" r="40" fill="none" stroke="#1d2130" stroke-width="11"/>
-    <circle cx="452" cy="332" r="40" fill="none" stroke="#1d2130" stroke-width="11"/>
-    <path d="M388 332 H412" stroke="#1d2130" stroke-width="10" stroke-linecap="round"/>
+  <!-- laptop -->
+  <g filter="url(#shadow)">
+    <path d="M276 543 Q400 595 524 543 L520 644 Q400 674 280 644 Z" fill="#cacfd7"/>
+    <path d="M300 560 Q400 603 500 560" fill="none" stroke="#8b9099" stroke-width="8" stroke-linecap="round"/>
+    <path d="M278 638 L522 638 L548 684 L252 684 Z" fill="#d5d8de"/>
+    <path d="M290 648 H510" stroke="#a0a6af" stroke-width="10" stroke-linecap="round"/>
+    <path d="M265 680 H535" stroke="#a09ea3" stroke-width="12" stroke-linecap="round"/>
   </g>
 
-  <g>
-    <rect x="565" y="500" width="120" height="120" rx="18" fill="#f8d74b"/>
-    <text x="625" y="565" text-anchor="middle" font-family="Arial, sans-serif" font-size="44" font-weight="800" fill="#1f2937">JS</text>
-    <path d="M615 610 L655 610" stroke="#3d3d3d" stroke-width="7" stroke-linecap="round"/>
-    <circle cx="655" cy="610" r="8" fill="#3d3d3d"/>
-    <path d="M600 620 L560 620" stroke="#3d3d3d" stroke-width="7" stroke-linecap="round"/>
-    <circle cx="560" cy="620" r="8" fill="#3d3d3d"/>
+  <!-- JS badge -->
+  <g filter="url(#shadow)">
+    <rect x="500" y="537" width="120" height="120" rx="18" fill="#f6d628"/>
+    <text x="560" y="606" text-anchor="middle" font-family="Arial, sans-serif" font-size="46" font-weight="700" fill="#1f2937">JS</text>
+    <circle cx="541" cy="620" r="8" fill="#1f2937"/>
+    <path d="M541 620 L583 620" stroke="#1f2937" stroke-width="6" stroke-linecap="round"/>
+    <circle cx="583" cy="620" r="8" fill="#1f2937"/>
   </g>
 
-  <g>
-    <rect x="548" y="630" width="130" height="80" rx="14" fill="#efefef" opacity="0.9"/>
-    <path d="M570 660 L580 660 L580 650 L614 650 L614 660 L624 660 L624 692 L570 692 Z" fill="#31363d" opacity="0.88"/>
-    <text x="592" y="680" text-anchor="middle" font-family="Arial, sans-serif" font-size="22" font-weight="700" fill="#2b2b2b">&lt;/&gt;</text>
+  <!-- code tag sticker -->
+  <g filter="url(#shadow)">
+    <rect x="508" y="671" width="134" height="86" rx="18" fill="#f1f5f9" opacity="0.95"/>
+    <text x="575" y="710" text-anchor="middle" font-family="Arial, sans-serif" font-size="26" font-weight="800" fill="#2f2f2f">&lt;/&gt;</text>
+    <text x="575" y="740" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#2f2f2f">Hello</text>
+    <text x="575" y="758" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#2f2f2f">World</text>
   </g>
 </svg>
