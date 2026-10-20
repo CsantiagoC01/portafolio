@@ -66,6 +66,14 @@
         .glow-effect {
             box-shadow: 0 0 25px -5px rgba(16, 185, 129, 0.3);
         }
+        .hp {
+            position: absolute;
+            left: -9999px;
+            width: 1px;
+            height: 1px;
+            opacity: 0;
+            pointer-events: none;
+        }
     </style>
 </head>
 <body class="bg-slate-950 text-slate-100 antialiased selection:bg-emerald-500 selection:text-slate-950 min-h-screen flex flex-col justify-between">
@@ -387,8 +395,8 @@
                     </div>
                 </div>
 
-                <div class="lg:col-span-7 bg-slate-900 p-8 rounded-2xl border border-slate-800">
-                    <form id="contact-form" class="space-y-4">
+                <div class="lg:col-span-7 bg-slate-900 p-8 rounded-2xl border border-slate-800 relative">
+                    <form id="contact-form" class="space-y-4" novalidate>
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                             <div>
                                 <label for="name" class="block text-xs font-mono text-slate-300 mb-1">Nombre Completo</label>
@@ -410,10 +418,15 @@
                             <textarea id="message" name="message" rows="4" required placeholder="Escribe tu mensaje aquí..." class="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-800 text-slate-100 placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-emerald-500/40 resize-none"></textarea>
                         </div>
 
+                        <div class="hp" aria-hidden="true">
+                            <label for="website">Si usted es humano, no complete este campo.</label>
+                            <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
+                        </div>
+
                         <input type="hidden" name="_captcha" value="false">
                         <input type="hidden" name="_template" value="table">
 
-                        <div id="form-feedback" class="hidden p-3 rounded-xl text-xs font-mono"></div>
+                        <div id="form-feedback" class="hidden p-3 rounded-xl text-xs font-mono" aria-live="polite"></div>
 
                         <button type="submit" class="w-full py-3.5 px-6 rounded-xl bg-gradient-to-r from-emerald-500 to-cyan-500 text-slate-950 font-bold text-sm hover:opacity-90 transition-all transform hover:-translate-y-0.5 shadow-lg shadow-emerald-500/20">
                             <i class="fa-solid fa-paper-plane"></i> Enviar Mensaje
@@ -486,19 +499,55 @@
             const contactForm = document.getElementById('contact-form');
             const formFeedback = document.getElementById('form-feedback');
 
+            function showMessage(type, message) {
+                formFeedback.classList.remove('hidden', 'bg-red-500/10', 'text-red-400', 'border-red-500/20', 'bg-emerald-500/10', 'text-emerald-400', 'border-emerald-500/20');
+                formFeedback.classList.add(type === 'success' ? 'bg-emerald-500/10' : 'bg-red-500/10');
+                formFeedback.classList.add(type === 'success' ? 'text-emerald-400' : 'text-red-400');
+                formFeedback.classList.add('border', type === 'success' ? 'border-emerald-500/20' : 'border-red-500/20');
+                formFeedback.innerHTML = message;
+            }
+
             if (contactForm && formFeedback) {
                 contactForm.addEventListener('submit', async (e) => {
                     e.preventDefault();
 
+                    const name = document.getElementById('name').value.trim();
+                    const email = document.getElementById('email').value.trim();
+                    const subject = document.getElementById('subject').value.trim();
+                    const message = document.getElementById('message').value.trim();
+                    const honeypot = document.getElementById('website').value.trim();
                     const submitButton = contactForm.querySelector('button[type="submit"]');
                     const originalText = submitButton.innerHTML;
-                    const formData = new FormData(contactForm);
+
+                    if (honeypot !== '') {
+                        showMessage('error', '<i class="fa-solid fa-circle-xmark mr-2"></i> Mensaje rechazado por seguridad.');
+                        return;
+                    }
+
+                    if (!name || !email || !subject || !message) {
+                        showMessage('error', '<i class="fa-solid fa-circle-xmark mr-2"></i> Completa todos los campos antes de enviar.');
+                        return;
+                    }
+
+                    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                    if (!emailPattern.test(email)) {
+                        showMessage('error', '<i class="fa-solid fa-circle-xmark mr-2"></i> Ingresa un correo electrónico válido.');
+                        return;
+                    }
+
+                    if (subject.length < 3 || message.length < 10) {
+                        showMessage('error', '<i class="fa-solid fa-circle-xmark mr-2"></i> El asunto y el mensaje son demasiado cortos.');
+                        return;
+                    }
 
                     submitButton.disabled = true;
                     submitButton.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Enviando...';
+                    showMessage('success', '<i class="fa-solid fa-circle-check mr-2"></i> Enviando mensaje...');
 
-                    formFeedback.classList.remove('hidden', 'bg-red-500/10', 'text-red-400', 'border-red-500/20');
-                    formFeedback.classList.add('bg-emerald-500/10', 'text-emerald-400', 'border', 'border-emerald-500/20');
+                    const formData = new FormData(contactForm);
+                    formData.delete('website');
+                    formData.set('_captcha', 'false');
+                    formData.set('_template', 'table');
 
                     try {
                         const response = await fetch('https://formsubmit.co/ajax/santiagocarmonacanas@gmail.com', {
@@ -509,16 +558,14 @@
                             }
                         });
 
-                        if (response.ok) {
-                            formFeedback.innerHTML = '<i class="fa-solid fa-circle-check mr-2"></i> ¡Mensaje enviado correctamente! Te responderé pronto.';
-                            contactForm.reset();
-                        } else {
+                        if (!response.ok) {
                             throw new Error('Error al enviar');
                         }
+
+                        showMessage('success', '<i class="fa-solid fa-circle-check mr-2"></i> ¡Mensaje enviado correctamente! Te responderé pronto.');
+                        contactForm.reset();
                     } catch (error) {
-                        formFeedback.classList.remove('bg-emerald-500/10', 'text-emerald-400', 'border-emerald-500/20');
-                        formFeedback.classList.add('bg-red-500/10', 'text-red-400', 'border', 'border-red-500/20');
-                        formFeedback.innerHTML = '<i class="fa-solid fa-circle-xmark mr-2"></i> Ocurrió un problema. Puedes enviarlo directamente a santiagocarmonacanas@gmail.com.';
+                        showMessage('error', '<i class="fa-solid fa-circle-xmark mr-2"></i> Ocurrió un problema. Puedes enviarlo directamente a santiagocarmonacanas@gmail.com.');
                     } finally {
                         submitButton.disabled = false;
                         submitButton.innerHTML = originalText;
